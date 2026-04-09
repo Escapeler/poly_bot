@@ -1,0 +1,27 @@
+{
+  "name": "polymarket-copy-trade-bot",
+  "version": "1.0.0",
+  "description": "Low-latency Polymarket copy trading bot via Almanac",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dry-run": "DRY_RUN=true node src/index.js",
+    "status": "node src/index.js --status",
+    "keys": "node src/deriveKeys.js",
+    "health": "curl -s http://localhost:8081/health | node -e \"process.stdin.resume();let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>console.log(JSON.stringify(JSON.parse(d),null,2)))\""
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "bottleneck": "^2.19.5",
+    "dotenv": "^16.4.0",
+    "ethers": "^6.13.0",
+    "p-limit": "^6.1.0",
+    "p-retry": "^6.2.0",
+    "ws": "^8.17.0",
+    "winston": "^3.13.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
